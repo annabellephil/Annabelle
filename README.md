@@ -1,126 +1,130 @@
-# Bower - A package manager for the web
+# [Bootstrap](http://getbootstrap.com)
 
-> Bower needs resources for its maintenance. Please fill [this form](https://docs.google.com/forms/d/1i-Opb-uPdqUBBZQSbngv3Y3bfolG1gbBvtRLfxMnzRE/viewform?c=0&w=1) if you think you can help.
+[![Slack](https://bootstrap-slack.herokuapp.com/badge.svg)](https://bootstrap-slack.herokuapp.com)
+![Bower version](https://img.shields.io/bower/v/bootstrap.svg)
+[![npm version](https://img.shields.io/npm/v/bootstrap.svg)](https://www.npmjs.com/package/bootstrap)
+[![Build Status](https://img.shields.io/travis/twbs/bootstrap/master.svg)](https://travis-ci.org/twbs/bootstrap)
+[![devDependency Status](https://img.shields.io/david/dev/twbs/bootstrap.svg)](https://david-dm.org/twbs/bootstrap#info=devDependencies)
+[![NuGet](https://img.shields.io/nuget/vpre/bootstrap.svg)](https://www.nuget.org/packages/bootstrap/4.0.0-alpha)
+[![Selenium Test Status](https://saucelabs.com/browser-matrix/bootstrap.svg)](https://saucelabs.com/u/bootstrap)
 
-[![Build Status](https://travis-ci.org/bower/bower.svg?branch=master)](https://travis-ci.org/bower/bower)
-[![Windows Build](https://ci.appveyor.com/api/projects/status/jr6vfra8w84plh2g/branch/master?svg=true)](https://ci.appveyor.com/project/sheerun/bower/history)
-[![Coverage Status](https://img.shields.io/coveralls/bower/bower.svg)](https://coveralls.io/r/bower/bower?branch=master)
-[![Discord chat](https://img.shields.io/badge/discord-join%20chat%20%E2%86%92-brightgreen.svg?style=flat)](https://discord.gg/0fFM7QF0KpZRh2cY)
-[![Issue Stats](http://issuestats.com/github/bower/bower/badge/pr?style=flat)](http://issuestats.com/github/bower/bower)
-[![Issue Stats](http://issuestats.com/github/bower/bower/badge/issue?style=flat)](http://issuestats.com/github/bower/bower)
+Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development, created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thornton](https://twitter.com/fat), and maintained by the [core team](https://github.com/orgs/twbs/people) with the massive support and involvement of the community.
 
-<img align="right" height="300" src="http://bower.io/img/bower-logo.png">
+To get started, check out <http://getbootstrap.com>!
 
----
+## Table of contents
 
-Bower offers a generic, unopinionated solution to the problem of **front-end package management**, while exposing the package dependency model via an API that can be consumed by a more opinionated build stack. There are no system wide dependencies, no dependencies are shared between different apps, and the dependency tree is flat.
+- [Quick start](#quick-start)
+- [Bugs and feature requests](#bugs-and-feature-requests)
+- [Documentation](#documentation)
+- [Contributing](#contributing)
+- [Community](#community)
+- [Versioning](#versioning)
+- [Creators](#creators)
+- [Copyright and license](#copyright-and-license)
 
-Bower runs over Git, and is package-agnostic. A packaged component can be made up of any type of asset, and use any type of transport (e.g., AMD, CommonJS, etc.).
+## Quick start
 
-**View complete docs on [bower.io](http://bower.io)**
+Several quick start options are available:
 
-[View all packages available through Bower's registry](http://bower.io/search/).
+- [Download the latest release](https://github.com/twbs/bootstrap/archive/v4.0.0-alpha.2.zip).
+- Clone the repo: `git clone https://github.com/twbs/bootstrap.git`.
+- Install with [Bower](http://bower.io): `bower install bootstrap`.
+- Install with [npm](https://www.npmjs.com): `npm install bootstrap`.
+- Install with [Meteor](https://www.meteor.com): `meteor add twbs:bootstrap`.
+- Install with [Composer](https://getcomposer.org): `composer require twbs/bootstrap`.
+- Install with [NuGet](https://www.nuget.org): CSS: `Install-Package bootstrap -Pre` Sass: `Install-Package bootstrap.sass -Pre` (`-Pre` is only required until Bootstrap v4 has a stable release).
 
-## Install
+Read the [Getting started page](http://getbootstrap.com/getting-started/) for information on the framework contents, templates and examples, and more.
 
-```sh
-$ npm install -g bower
-```
+### What's included
 
-Bower depends on [Node.js](http://nodejs.org/) and [npm](http://npmjs.org/). Also make sure that [git](http://git-scm.com/) is installed as some bower
-packages require it to be fetched and installed.
-
-
-## Usage
-
-See complete command line reference at [bower.io/docs/api/](http://bower.io/docs/api/)
-
-### Installing packages and dependencies
-
-```sh
-# install dependencies listed in bower.json
-$ bower install
-
-# install a package and add it to bower.json
-$ bower install <package> --save
-
-# install specific version of a package and add it to bower.json
-$ bower install <package>#<version> --save
-```
-
-### Using packages
-
-We discourage using bower components statically for performance and security reasons (if component has an `upload.php` file that is not ignored, that can be easily exploited to do malicious stuff).
-
-The best approach is to process components installed by bower with build tool (like [Grunt](http://gruntjs.com/) or [gulp](http://gulpjs.com/)), and serve them concatenated or using a module loader (like [RequireJS](http://requirejs.org/)).
-
-### Uninstalling packages
-
-To uninstall a locally installed package:
-
-```sh
-$ bower uninstall <package-name>
-```
-
-### prezto and oh-my-zsh users
-
-On `prezto` or `oh-my-zsh`, do not forget to `alias bower='noglob bower'` or `bower install jquery\#1.9.1`
-
-### Never run Bower with sudo
-
-Bower is a user command; there is no need to execute it with superuser permissions.
-
-### Windows users
-
-To use Bower on Windows, you must install
-[Git for Windows](http://git-for-windows.github.io/) correctly. Be sure to check the
-options shown below:
-
-<img src="https://cloud.githubusercontent.com/assets/10702007/10532690/d2e8991a-7386-11e5-9a57-613c7f92e84e.png" width="534" height="418" alt="Git for Windows" />
-
-<img src="https://cloud.githubusercontent.com/assets/10702007/10532694/dbe8857a-7386-11e5-9bd0-367e97644403.png" width="534" height="418" alt="Git for Windows" />
-
-Note that if you use TortoiseGit and if Bower keeps asking for your SSH
-password, you should add the following environment variable: `GIT_SSH -
-C:\Program Files\TortoiseGit\bin\TortoisePlink.exe`. Adjust the `TortoisePlink`
-path if needed.
-
-### Ubuntu users
-
-To use Bower on Ubuntu, you might need to link `nodejs` executable to `node`:
+Within the download you'll find the following directories and files, logically grouping common assets and providing both compiled and minified variations. You'll see something like this:
 
 ```
-sudo ln -s /usr/bin/nodejs /usr/bin/node
+bootstrap/
+├── css/
+│   ├── bootstrap.css
+│   ├── bootstrap.css.map
+│   ├── bootstrap.min.css
+│   └── bootstrap.min.css.map
+└── js/
+    ├── bootstrap.js
+    └── bootstrap.min.js
 ```
 
-## Configuration
-
-Bower can be configured using JSON in a `.bowerrc` file. Read over available options at [bower.io/docs/config](http://bower.io/docs/config).
+We provide compiled CSS and JS (`bootstrap.*`), as well as compiled and minified CSS and JS (`bootstrap.min.*`). CSS [source maps](https://developer.chrome.com/devtools/docs/css-preprocessors) (`bootstrap.*.map`) are available for use with certain browsers' developer tools.
 
 
-## Support
+## Bugs and feature requests
 
-* [Discord chat](https://discord.gg/0fFM7QF0KpZRh2cY)
-* [StackOverflow](http://stackoverflow.com/questions/tagged/bower)
-* [Mailinglist](http://groups.google.com/group/twitter-bower) - twitter-bower@googlegroups.com
+Have a bug or a feature request? Please first read the [issue guidelines](https://github.com/twbs/bootstrap/blob/master/CONTRIBUTING.md#using-the-issue-tracker) and search for existing and closed issues. If your problem or idea is not addressed yet, [please open a new issue](https://github.com/twbs/bootstrap/issues/new).
+
+
+## Documentation
+
+Bootstrap's documentation, included in this repo in the root directory, is built with [Jekyll](http://jekyllrb.com) and publicly hosted on GitHub Pages at <http://getbootstrap.com>. The docs may also be run locally.
+
+### Running documentation locally
+
+1. Run through the [tooling setup](https://github.com/twbs/bootstrap/blob/v4-dev/docs/getting-started/build-tools.md#tooling-setup) to install Jekyll (the site builder) and other Ruby dependencies with `bundle install`.
+2. From the root `/bootstrap` directory, run `bundle exec jekyll serve` in the command line.
+3. Open <http://localhost:9001> in your browser, and voilà.
+
+Learn more about using Jekyll by reading its [documentation](http://jekyllrb.com/docs/home/).
+
+### Documentation for previous releases
+
+Documentation for v2.3.2 has been made available for the time being at <http://getbootstrap.com/2.3.2/> while folks transition to Bootstrap 3.
+
+[Previous releases](https://github.com/twbs/bootstrap/releases) and their documentation are also available for download.
+
+
 
 ## Contributing
 
-We welcome [contributions](https://github.com/bower/bower/graphs/contributors) of all kinds from anyone. Please take a moment to review the [guidelines for contributing](CONTRIBUTING.md).
+Please read through our [contributing guidelines](https://github.com/twbs/bootstrap/blob/master/CONTRIBUTING.md). Included are directions for opening issues, coding standards, and notes on development.
 
-* [Bug reports](https://github.com/bower/bower/wiki/Report-a-Bug)
-* [Feature requests](CONTRIBUTING.md#features)
-* [Pull requests](CONTRIBUTING.md#pull-requests)
+Moreover, if your pull request contains JavaScript patches or features, you must include [relevant unit tests](https://github.com/twbs/bootstrap/tree/master/js/tests). All HTML and CSS should conform to the [Code Guide](https://github.com/mdo/code-guide), maintained by [Mark Otto](https://github.com/mdo).
+
+Editor preferences are available in the [editor config](https://github.com/twbs/bootstrap/blob/master/.editorconfig) for easy use in common text editors. Read more and download plugins at <http://editorconfig.org>.
 
 
-Note that on Windows for tests to pass you need to configure Git before cloning:
 
-```
-git config --global core.autocrlf input
-```
+## Community
 
-## License
+Get updates on Bootstrap's development and chat with the project maintainers and community members.
 
-Copyright (c) 2015 Twitter and [other contributors](https://github.com/bower/bower/graphs/contributors)
+- Follow [@getbootstrap on Twitter](https://twitter.com/getbootstrap).
+- Read and subscribe to [The Official Bootstrap Blog](http://blog.getbootstrap.com).
+- Join [the official Slack room](https://bootstrap-slack.herokuapp.com).
+- Chat with fellow Bootstrappers in IRC. On the `irc.freenode.net` server, in the `##bootstrap` channel.
+- Implementation help may be found at Stack Overflow (tagged [`bootstrap-4`](https://stackoverflow.com/questions/tagged/bootstrap-4)).
+- Developers should use the keyword `bootstrap` on packages which modify or add to the functionality of Bootstrap when distributing through [npm](https://www.npmjs.com/browse/keyword/bootstrap) or similar delivery mechanisms for maximum discoverability.
 
-Licensed under the MIT License
+
+
+## Versioning
+
+For transparency into our release cycle and in striving to maintain backward compatibility, Bootstrap is maintained under [the Semantic Versioning guidelines](http://semver.org/). Sometimes we screw up, but we'll adhere to those rules whenever possible.
+
+See [the Releases section of our GitHub project](https://github.com/twbs/bootstrap/releases) for changelogs for each release version of Bootstrap. Release announcement posts on [the official Bootstrap blog](http://blog.getbootstrap.com) contain summaries of the most noteworthy changes made in each release.
+
+
+## Creators
+
+**Mark Otto**
+
+- <https://twitter.com/mdo>
+- <https://github.com/mdo>
+
+**Jacob Thornton**
+
+- <https://twitter.com/fat>
+- <https://github.com/fat>
+
+
+
+## Copyright and license
+
+Code and documentation copyright 2011-2015 Twitter, Inc. Code released under [the MIT license](https://github.com/twbs/bootstrap/blob/master/LICENSE). Docs released under [Creative Commons](https://github.com/twbs/bootstrap/blob/master/docs/LICENSE).
